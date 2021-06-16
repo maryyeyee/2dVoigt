@@ -32,16 +32,26 @@ class Dataset_Generator(Dataset):
                  **kwargs):
         self.model = model
         self.samples_per_epoch = samples_per_epoch
+        self.a = kwargs.get('a')
+        self.b = kwargs.get('b')
+        self.h = kwargs.get('h')
+        self.k = kwargs.get('k')
+        self.T = kwargs.get('T')
         self.sd = kwargs.get('sd')
-        self.mean = kwargs.get('mean')
         self.amp = kwargs.get('amp')
         self.fraction = kwargs.get('fraction')
-        self.x_vector = kwargs.get('x_vector')
+        self.x = kwargs.get('x')
+        self.y = kwargs.get('y')
         self.size = size
-        self.function = self.model(self.x_vector,
+        self.function = self.model(self.x, self.y
                                    sd=self.sd,
-                                   mean=self.mean,
+                                   fraction=self.fraction,
                                    amp=self.amp,
+                                   a=self.a,
+                                   b=self.b,
+                                   h=self.h,
+                                   k=self.k,
+                                   T=self.T,
                                    size=self.size)
 
     def __len__(self):

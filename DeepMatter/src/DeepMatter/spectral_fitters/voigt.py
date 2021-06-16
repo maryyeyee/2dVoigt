@@ -8,7 +8,7 @@ class PsuedoVoigt:
     """
 
     def __init__(self, x_vector,
-                 sd=[0, 1],
+                 sd=[0, 1], 
                  mean=[0, 1],
                  amp=[0, 1],
                  fraction=[0, 1],
@@ -71,7 +71,7 @@ class PsuedoVoigt:
             x_vector = torch.cat(params.shape[0] * [self.x_vector]).reshape(
                 params.shape[0], -1).to(device)
 
-            x_vector = torch.transpose(x_vector, 0, 1).to(device)
+            x_vector = torch.tranxc spose(x_vector, 0, 1).to(device)
 
             if self.verbose:
                 print(f'x_vector_shape = {x_vector.size()}')
